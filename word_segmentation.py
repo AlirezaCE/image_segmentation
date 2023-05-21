@@ -57,10 +57,9 @@ img3 = img.copy()
 word_list = []
 
 for line in sorted_contours_lines:
-
     x, y, w, h = cv2.boundingRect(line)
     roi_line = dilated2[y:y+h, x:x+w]
-
+    print (y)
     (contours_word, heirarchy) = cv2.findContours(roi_line.copy(), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
     sorted_contours_words = sorted(contours_word, key = lambda ctr : cv2.boundingRect(ctr)[0])
 
@@ -83,6 +82,6 @@ def ShowWord(numOfWord):
     plt.imshow(roi)
     print(word)
 
-ShowWord(9)
+ShowWord(19)
 
 # %%
